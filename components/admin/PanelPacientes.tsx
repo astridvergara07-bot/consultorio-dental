@@ -219,13 +219,85 @@ function FilaPaciente({ paciente: inicial }: { paciente: PacienteFila }) {
   );
 }
 
+function FormularioNuevoPaciente({ onCreado }: { onCreado: (p: PacienteFila) => void }) {
+  const [abierto, setAbierto] = useState(false);
+  const [nombre, setNombre] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [guardando, setGuardando] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function crear(e: React.FormEvent) {
+    e.preventDefault();
+    setGuardando(true);
+    setError(null);
+    const supabase = crearClienteNavegador();
+    const { data, error: errorInsert } = await supabase
+      .from("pacientes")
+      .insert({ nombre, telefono, correo: correo || null })
+      .select("id, nombre, telefono, correo, fecha_nacimiento, notas_generales, proxima_cita")
+      .single();
+    setGuardando(false);
+    if (errorInsert || !data) {
+      setError(
+        errorInsert?.code === "23505"
+          ? "Ya existe un paciente con ese telefono."
+          : "No se pudo crear el paciente."
+      );
+      return;
+    }
+    onCreado({ ...data, historial_pacientes: [] });
+    setNombre("");
+    setTelefono("");
+    setCorreo("");
+    setAbierto(false);
+  }
+
+  if (!abierto) {
+    return (
+      <button className="btn-primary" type="button" onClick={() => setAbierto(true)} style={{ marginTop: 14 }}>
+        Agregar paciente
+      </button>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={crear}
+      style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "flex-end", marginTop: 14 }}
+    >
+      <div className="form-field" style={{ minWidth: 180 }}>
+        <label>Nombre</label>
+        <input value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+      </div>
+      <div className="form-field" style={{ minWidth: 150 }}>
+        <label>Telefono</label>
+        <input value={telefono} onChange={(e) => setTelefono(e.target.value)} required />
+      </div>
+      <div className="form-field" style={{ minWidth: 180 }}>
+        <label>Correo (opcional)</label>
+        <input value={correo} onChange={(e) => setCorreo(e.target.value)} />
+      </div>
+      {error && <p className="form-msg error">{error}</p>}
+      <button className="btn-primary" type="submit" disabled={guardando}>
+        {guardando ? "Guardando..." : "Guardar"}
+      </button>
+      <button className="btn-secondary" type="button" onClick={() => setAbierto(false)}>
+        Cancelar
+      </button>
+    </form>
+  );
+}
+
 export function PanelPacientes({ pacientesIniciales }: { pacientesIniciales: PacienteFila[] }) {
+  const [pacientes, setPacientes] = useState(pacientesIniciales);
+
   return (
     <section className="admin-section">
-      <h2 style={{ fontSize: "1.05rem" }}>Pacientes ({pacientesIniciales.length})</h2>
+      <h2 style={{ fontSize: "1.05rem" }}>Pacientes ({pacientes.length})</h2>
       <p className="section-sub" style={{ marginTop: 4 }}>
-        Se crean solos cuando alguien pide cita desde el sitio. Haz clic en un paciente para ver y
-        completar su historial.
+        Agrégalos tú misma con el botón de abajo, o se crean solos cuando alguien pide cita desde
+        el sitio. Haz clic en un paciente para ver y completar su historial.
       </p>
       <table className="admin-table" style={{ marginTop: 14 }}>
         <thead>
@@ -238,18 +310,19 @@ export function PanelPacientes({ pacientesIniciales }: { pacientesIniciales: Pac
           </tr>
         </thead>
         <tbody>
-          {pacientesIniciales.length === 0 && (
+          {pacientes.length === 0 && (
             <tr>
               <td colSpan={5} style={{ color: "var(--muted)" }}>
                 Todavia no hay pacientes registrados.
               </td>
             </tr>
           )}
-          {pacientesIniciales.map((p) => (
+          {pacientes.map((p) => (
             <FilaPaciente key={p.id} paciente={p} />
           ))}
         </tbody>
       </table>
+      <FormularioNuevoPaciente onCreado={(p) => setPacientes((prev) => [p, ...prev])} />
     </section>
   );
 }
