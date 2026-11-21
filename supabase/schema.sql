@@ -61,6 +61,18 @@ create policy "configuracion_select_publico" on public.configuracion
 create policy "configuracion_update_autenticado" on public.configuracion
   for update to authenticated using (true);
 
+-- Si al crear el proyecto quedo sin marcar "Grant API access to new tables
+-- automatically", las policies de RLS de arriba no bastan: ademas hace falta el
+-- permiso de tabla (GRANT) para que los roles anon/authenticated puedan tocarla.
+grant select, insert on public.citas to anon;
+grant select, update on public.citas to authenticated;
+
+grant select, insert on public.testimonios to anon;
+grant select, update, delete on public.testimonios to authenticated;
+
+grant select on public.configuracion to anon;
+grant select, update on public.configuracion to authenticated;
+
 -- Despues de correr esto: Authentication -> Users -> "Add user" para crear el
 -- login de la doctora (correo + contrasena). Ese es el unico usuario autenticado,
 -- no hay registro publico.
