@@ -24,10 +24,12 @@ export function PanelAdmin({
   citasIniciales,
   testimoniosIniciales,
   configuracionInicial,
+  children,
 }: {
   citasIniciales: CitaFila[];
   testimoniosIniciales: TestimonioFila[];
   configuracionInicial: Record<string, string>;
+  children?: React.ReactNode;
 }) {
   const router = useRouter();
   const [citas, setCitas] = useState(citasIniciales);
@@ -216,6 +218,8 @@ export function PanelAdmin({
             </tbody>
           </table>
         </section>
+
+        {children}
       </div>
     </div>
   );
