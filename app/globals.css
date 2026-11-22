@@ -743,7 +743,37 @@ footer {
   margin-top: 24px;
 }
 
+.admin-bienvenida {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 22px;
+}
+
+.admin-bienvenida img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: top center;
+  flex: none;
+}
+
+.admin-bienvenida h2 {
+  font-size: 1.1rem;
+}
+
+.admin-bienvenida p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
 .frase-dia {
+  margin-top: 16px;
   background: var(--bg-soft);
   border: 1px solid var(--line);
   border-radius: 16px;

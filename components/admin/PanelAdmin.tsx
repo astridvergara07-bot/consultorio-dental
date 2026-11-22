@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { crearClienteNavegador } from "@/lib/supabase/client";
 import { fraseDelDia } from "@/lib/frases";
+import { Icono, DefinicionesIconos } from "@/components/Iconos";
 
 export interface CitaFila {
   id: string;
@@ -78,9 +79,13 @@ export function PanelAdmin({
 
   return (
     <div className="admin-shell">
+      <DefinicionesIconos />
       <header className="admin-header">
         <div className="wrap admin-header-inner">
-          <h1 style={{ fontSize: "1.2rem" }}>Panel del consultorio</h1>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Icono id="ic-tooth" className="login-icon" />
+            <h1 style={{ fontSize: "1.2rem" }}>Dental Lab</h1>
+          </div>
           <button className="link-btn" onClick={cerrarSesion} type="button">
             Cerrar sesion
           </button>
@@ -88,6 +93,14 @@ export function PanelAdmin({
       </header>
 
       <div className="wrap" style={{ paddingBlock: 32 }}>
+        <div className="admin-bienvenida">
+          <img src="/doctora.jpg" alt="Dra. Astrid Carolina Vergara" />
+          <div>
+            <h2>Hola, Dra. Astrid Carolina Vergara</h2>
+            <p>Panel privado de Dental Lab</p>
+          </div>
+        </div>
+
         <div className="frase-dia">
           <p>&ldquo;{fraseDelDia()}&rdquo;</p>
           <span>— Jorge Vergara, te quiero mucho</span>
