@@ -728,6 +728,13 @@ footer {
   gap: 16px;
 }
 
+.login-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--mint);
+  flex: none;
+}
+
 .admin-section {
   background: var(--card-bg);
   border: 1px solid var(--line);

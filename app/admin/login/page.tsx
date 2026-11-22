@@ -37,8 +37,11 @@ export default function LoginAdmin() {
       <DefinicionesIconos />
       <form className="admin-card" onSubmit={entrar}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Icono id="ic-tooth" className="hero-icon" />
-          <h2 style={{ fontSize: "1.2rem" }}>Panel del consultorio</h2>
+          <Icono id="ic-tooth" className="login-icon" />
+          <div>
+            <h2 style={{ fontSize: "1.2rem" }}>Dental Lab</h2>
+            <p style={{ fontSize: "0.8rem", color: "var(--muted)" }}>Panel privado</p>
+          </div>
         </div>
         <div className="form-field">
           <label htmlFor="correo">Correo</label>
