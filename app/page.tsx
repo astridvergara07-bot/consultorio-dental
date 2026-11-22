@@ -123,23 +123,28 @@ export default async function Home() {
       <Nav />
       <main>
         <section className="hero wrap" id="inicio">
-          <Icono id="ic-tooth" className="hero-icon" />
-          <h1>
-            Dra. <span className="clinic-name">Astrid Carolina Vergara</span>
-          </h1>
-          <p className="tagline">
-            Cuidamos tu sonrisa con calidez y precision, en cada etapa de tu vida. En{" "}
-            <strong>Dental Lab</strong> encuentras atencion dental cercana, clara y
-            pensada para ti.
-          </p>
-          <div className="hero-actions">
-            <a className="btn-primary" href="#contacto">
-              <Icono id="ic-calendar" />
-              Agendar una cita
-            </a>
-            <a className="btn-secondary" href="#procedimientos">
-              Ver procedimientos
-            </a>
+          <div className="hero-text">
+            <p className="eyebrow">Bienvenida a Dental Lab</p>
+            <h1>
+              Dra. <span className="clinic-name">Astrid Carolina Vergara</span>
+            </h1>
+            <p className="tagline">
+              Cuidamos tu sonrisa con calidez y precision, en cada etapa de tu vida. En{" "}
+              <strong>Dental Lab</strong> encuentras atencion dental cercana, clara y
+              pensada para ti.
+            </p>
+            <div className="hero-actions">
+              <a className="btn-primary" href="#contacto">
+                <Icono id="ic-calendar" />
+                Agendar una cita
+              </a>
+              <a className="btn-secondary" href="#procedimientos">
+                Ver procedimientos
+              </a>
+            </div>
+          </div>
+          <div className="hero-photo">
+            <img src="/doctora.jpg" alt="Dra. Astrid Carolina Vergara" />
           </div>
         </section>
 
@@ -148,8 +153,7 @@ export default async function Home() {
             <p className="eyebrow">Sobre la doctora</p>
             <div className="doctor-grid">
               <div className="doctor-photo">
-                <Icono id="ic-camera" />
-                Foto de la doctora
+                <img src="/doctora.jpg" alt="Dra. Astrid Carolina Vergara" />
               </div>
               <div className="doctor-info">
                 <h2>Dra. Astrid Carolina Vergara</h2>
