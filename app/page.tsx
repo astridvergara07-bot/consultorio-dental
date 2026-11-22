@@ -1,6 +1,7 @@
 import { crearClienteServidor } from "@/lib/supabase/server";
 import { DefinicionesIconos, Icono } from "@/components/Iconos";
 import { Nav } from "@/components/Nav";
+import { HeroPrincipal } from "@/components/HeroPrincipal";
 import { FormularioCita } from "@/components/FormularioCita";
 import { FormularioTestimonio } from "@/components/FormularioTestimonio";
 
@@ -122,31 +123,7 @@ export default async function Home() {
       <DefinicionesIconos />
       <Nav />
       <main>
-        <section className="hero wrap" id="inicio">
-          <div className="hero-text">
-            <p className="eyebrow">Bienvenida a Dental Lab</p>
-            <h1>
-              Dra. <span className="clinic-name">Astrid Carolina Vergara</span>
-            </h1>
-            <p className="tagline">
-              Cuidamos tu sonrisa con calidez y precision, en cada etapa de tu vida. En{" "}
-              <strong>Dental Lab</strong> encuentras atencion dental cercana, clara y
-              pensada para ti.
-            </p>
-            <div className="hero-actions">
-              <a className="btn-primary" href="#contacto">
-                <Icono id="ic-calendar" />
-                Agendar una cita
-              </a>
-              <a className="btn-secondary" href="#procedimientos">
-                Ver procedimientos
-              </a>
-            </div>
-          </div>
-          <div className="hero-photo">
-            <img src="/doctora.jpg" alt="Dra. Astrid Carolina Vergara" />
-          </div>
-        </section>
+        <HeroPrincipal />
 
         <section className="soft" id="doctora">
           <div className="wrap">

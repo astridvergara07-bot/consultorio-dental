@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { crearClienteNavegador } from "@/lib/supabase/client";
 import { fraseDelDia } from "@/lib/frases";
 import { Icono, DefinicionesIconos } from "@/components/Iconos";
+import { HeroPrincipal } from "@/components/HeroPrincipal";
 
 export interface CitaFila {
   id: string;
@@ -93,13 +94,9 @@ export function PanelAdmin({
       </header>
 
       <div className="wrap" style={{ paddingBlock: 32 }}>
-        <div className="admin-bienvenida">
-          <img src="/doctora.jpg" alt="Dra. Astrid Carolina Vergara" />
-          <div>
-            <h2>Hola, Dra. Astrid Carolina Vergara</h2>
-            <p>Panel privado de Dental Lab</p>
-          </div>
-        </div>
+        <section className="admin-section">
+          <HeroPrincipal className="hero" conAncla={false} />
+        </section>
 
         <div className="frase-dia">
           <p>&ldquo;{fraseDelDia()}&rdquo;</p>
