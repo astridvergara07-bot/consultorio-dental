@@ -256,7 +256,7 @@ function FormularioNuevoPaciente({ onCreado }: { onCreado: (p: PacienteFila) => 
   if (!abierto) {
     return (
       <button className="btn-primary" type="button" onClick={() => setAbierto(true)} style={{ marginTop: 14 }}>
-        Agregar paciente
+        Agregar cliente
       </button>
     );
   }
@@ -294,10 +294,10 @@ export function PanelPacientes({ pacientesIniciales }: { pacientesIniciales: Pac
 
   return (
     <section className="admin-section">
-      <h2 style={{ fontSize: "1.05rem" }}>Pacientes ({pacientes.length})</h2>
+      <h2 style={{ fontSize: "1.05rem" }}>Base de datos de clientes ({pacientes.length})</h2>
       <p className="section-sub" style={{ marginTop: 4 }}>
         Agrégalos tú misma con el botón de abajo, o se crean solos cuando alguien pide cita desde
-        el sitio. Haz clic en un paciente para ver y completar su historial.
+        el sitio. Haz clic en un cliente para ver y completar su historial.
       </p>
       <table className="admin-table" style={{ marginTop: 14 }}>
         <thead>
@@ -313,7 +313,7 @@ export function PanelPacientes({ pacientesIniciales }: { pacientesIniciales: Pac
           {pacientes.length === 0 && (
             <tr>
               <td colSpan={5} style={{ color: "var(--muted)" }}>
-                Todavia no hay pacientes registrados.
+                Todavia no hay clientes registrados.
               </td>
             </tr>
           )}
