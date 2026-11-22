@@ -125,11 +125,11 @@ export default async function Home() {
         <section className="hero wrap" id="inicio">
           <Icono id="ic-tooth" className="hero-icon" />
           <h1>
-            Dra. <span className="clinic-name">[Nombre de la Doctora]</span>
+            Dra. <span className="clinic-name">Astrid Carolina Vergara</span>
           </h1>
           <p className="tagline">
             Cuidamos tu sonrisa con calidez y precision, en cada etapa de tu vida. En{" "}
-            <strong>[Nombre del Consultorio]</strong> encuentras atencion dental cercana, clara y
+            <strong>Dental Lab</strong> encuentras atencion dental cercana, clara y
             pensada para ti.
           </p>
           <div className="hero-actions">
@@ -152,23 +152,26 @@ export default async function Home() {
                 Foto de la doctora
               </div>
               <div className="doctor-info">
-                <h2>Dra. [Nombre de la Doctora]</h2>
-                <p className="role">[Especialidad, ej. Odontologia General y Estetica]</p>
+                <h2>Dra. Astrid Carolina Vergara</h2>
+                <p className="role">Ortodoncista</p>
                 <p className="doctor-bio">
-                  [Espacio para una breve historia profesional: donde estudio, que la motiva a
-                  ejercer la odontologia y como acompana a sus pacientes.]
+                  Egresada de la Universidad Santiago de Cali, la Dra. Astrid Carolina Vergara lleva
+                  6 anos dedicada a la ortodoncia con un sello muy suyo: tratar a cada paciente como
+                  si fuera el unico del dia. Le encanta explicar cada paso del tratamiento en
+                  palabras sencillas, para que salgas de tu cita con una sonrisa mas segura y ninguna
+                  duda en el camino.
                 </p>
                 <div className="fact-row">
                   <div className="fact">
-                    <div className="num">[Universidad]</div>
-                    <div className="label">Formacion academica</div>
+                    <div className="num">Santiago de Cali</div>
+                    <div className="label">Universidad</div>
                   </div>
                   <div className="fact">
-                    <div className="num">[+XX]</div>
+                    <div className="num">6</div>
                     <div className="label">Anos de experiencia</div>
                   </div>
                   <div className="fact">
-                    <div className="num">[Especialidad]</div>
+                    <div className="num">Ortodoncia</div>
                     <div className="label">Area de enfoque</div>
                   </div>
                 </div>
@@ -317,9 +320,7 @@ export default async function Home() {
         </section>
       </main>
 
-      <footer>
-        [Nombre del Consultorio] - Reemplaza los datos de contacto desde el panel /admin.
-      </footer>
+      <footer>Dental Lab - Dra. Astrid Carolina Vergara, Ortodoncista.</footer>
     </>
   );
 }

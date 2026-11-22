@@ -11,7 +11,7 @@ export function Nav() {
       <div className="nav-inner wrap">
         <div className="brand">
           <Icono id="ic-tooth" />
-          [Nombre del Consultorio]
+          Dental Lab
         </div>
         <ul className="nav-links">
           <li>
