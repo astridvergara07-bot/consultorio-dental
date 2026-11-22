@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { crearClienteNavegador } from "@/lib/supabase/client";
+import { fraseDelDia } from "@/lib/frases";
 
 export interface CitaFila {
   id: string;
@@ -87,6 +88,11 @@ export function PanelAdmin({
       </header>
 
       <div className="wrap" style={{ paddingBlock: 32 }}>
+        <div className="frase-dia">
+          <p>&ldquo;{fraseDelDia()}&rdquo;</p>
+          <span>— Jorge Vergara, te quiero mucho</span>
+        </div>
+
         <section className="admin-section">
           <h2 style={{ fontSize: "1.05rem" }}>Informacion de contacto y horario</h2>
           <p className="section-sub" style={{ marginTop: 4 }}>

@@ -717,6 +717,29 @@ footer {
   margin-top: 24px;
 }
 
+.frase-dia {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.frase-dia p {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.frase-dia span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--mint-dark);
+  font-weight: 600;
+}
+
 table.admin-table {
   width: 100%;
   border-collapse: collapse;
